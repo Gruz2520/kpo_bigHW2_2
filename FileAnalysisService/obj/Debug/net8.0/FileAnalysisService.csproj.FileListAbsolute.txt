@@ -46,3 +46,4 @@ D:\Projects\projects_c#\kpo_bigHW2_2\FileAnalysisService\obj\Debug\net8.0\refint
 D:\Projects\projects_c#\kpo_bigHW2_2\FileAnalysisService\obj\Debug\net8.0\FileAnalysisService.pdb
 D:\Projects\projects_c#\kpo_bigHW2_2\FileAnalysisService\obj\Debug\net8.0\FileAnalysisService.genruntimeconfig.cache
 D:\Projects\projects_c#\kpo_bigHW2_2\FileAnalysisService\obj\Debug\net8.0\ref\FileAnalysisService.dll
+D:\Projects\projects_c#\kpo_bigHW2_2\FileAnalysisService\obj\Debug\net8.0\FileAnalysisService.sourcelink.json

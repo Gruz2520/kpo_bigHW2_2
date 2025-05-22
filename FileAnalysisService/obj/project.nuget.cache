@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vxifj/kZAPSs/wDY/4nj4jppJJZWRmbclc15kq6pA2ypBRA5wH+yntTspuy+9od1KkFgSn6jfwZCJ6OFDZqh6g==",
+  "dgSpecHash": "FRBPMSZBvW4GcS8R3ikdT/E7ONKJpqmzmCV0X0yoH1NvN2P6h0EsF2RzwdzjRnkAUoewgdu6ehqyr5NqQJMBPQ==",
   "success": true,
   "projectFilePath": "D:\\Projects\\projects_c#\\kpo_bigHW2_2\\FileAnalysisService\\FileAnalysisService.csproj",
   "expectedPackageFiles": [
@@ -30,7 +30,10 @@
     "C:\\Users\\user\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\system.net.http.json\\8.0.0\\system.net.http.json.8.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

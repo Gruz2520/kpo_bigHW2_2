@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Shared.Protos;
 using Microsoft.Extensions.Options;
 using ApiGateway.Models;
+using System.Text.Json;
+using System.Net.Http.Json;
 
 namespace ApiGateway.Controllers;
 

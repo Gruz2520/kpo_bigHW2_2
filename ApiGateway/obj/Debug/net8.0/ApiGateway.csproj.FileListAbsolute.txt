@@ -37,3 +37,4 @@ D:\Projects\projects_c#\kpo_bigHW2_2\ApiGateway\obj\Debug\net8.0\refint\ApiGatew
 D:\Projects\projects_c#\kpo_bigHW2_2\ApiGateway\obj\Debug\net8.0\ApiGateway.pdb
 D:\Projects\projects_c#\kpo_bigHW2_2\ApiGateway\obj\Debug\net8.0\ApiGateway.genruntimeconfig.cache
 D:\Projects\projects_c#\kpo_bigHW2_2\ApiGateway\obj\Debug\net8.0\ref\ApiGateway.dll
+D:\Projects\projects_c#\kpo_bigHW2_2\ApiGateway\obj\Debug\net8.0\ApiGateway.sourcelink.json

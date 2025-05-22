@@ -18,8 +18,8 @@ public class FileAnalysisGrpcService : FileAnalysis.FileAnalysisBase
     {
         var fileStoringUrl = configuration["FileStoringService:Url"] ?? "https://localhost:7001";
         _fileStoringChannel = GrpcChannel.ForAddress(fileStoringUrl);
-        _wordCloudApiUrl = configuration["WordCloudApi:Url"] ?? "https://quickchart.io/wordcloud";
         _logger = logger;
+        _wordCloudApiUrl = configuration["WordCloudApi:Url"] ?? "https://quickchart.io/wordcloud";
     }
 
     public override async Task<AnalyzeFileResponse> AnalyzeFile(AnalyzeFileRequest request, ServerCallContext context)
@@ -129,19 +129,15 @@ public class FileAnalysisGrpcService : FileAnalysis.FileAnalysisBase
             var content = fileResponse.Content.ToByteArray();
             var text = Encoding.UTF8.GetString(content);
 
-            var words = text.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries)
-                .GroupBy(w => w.ToLower())
-                .Select(g => new { Word = g.Key, Count = g.Count() })
-                .OrderByDescending(w => w.Count)
-                .Take(100)
-                .ToDictionary(w => w.Word, w => w.Count);
-
             var wordCloudData = new
             {
-                text = words,
-                width = 800,
-                height = 400,
-                colors = new[] { "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd" }
+                format = "png",
+                width = 1000,
+                height = 1000,
+                fontFamily = "sans-serif",
+                fontScale = 15,
+                scale = "linear",
+                text = text
             };
 
             using var httpClient = new HttpClient();

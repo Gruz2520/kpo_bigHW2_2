@@ -84,25 +84,49 @@ public class FileAnalysisService : FileAnalysis.FileAnalysisBase
 
             var content = fileResponse.Content.ToByteArray();
             var text = Encoding.UTF8.GetString(content);
+            
+            _logger.LogInformation($"File content: {text}");
 
+            // Получаем частые слова и их количество
             var words = text.Split(new[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+                .Where(w => w.Length > 3) // Игнорируем короткие слова
                 .GroupBy(w => w.ToLower())
                 .Select(g => new { Word = g.Key, Count = g.Count() })
                 .OrderByDescending(w => w.Count)
                 .Take(100)
-                .ToDictionary(w => w.Word, w => w.Count);
+                .ToList();
+
+            _logger.LogInformation($"Found {words.Count} words");
+
+            // Формируем список слов в формате "слово:частота"
+            var wordList = string.Join("\n", words.Select(w => $"{w.Word}:{w.Count}"));
+            _logger.LogInformation($"Word list: {wordList}");
 
             var wordCloudData = new
             {
-                text = words,
-                width = 800,
-                height = 400,
-                colors = new[] { "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd" }
+                format = "png",
+                width = 1000,
+                height = 1000,
+                fontFamily = "sans-serif",
+                fontScale = 15,
+                scale = "linear",
+                useWordList = true,
+                text = wordList
             };
+
+            _logger.LogInformation($"Request data: {System.Text.Json.JsonSerializer.Serialize(wordCloudData)}");
 
             using var httpClient = new HttpClient();
             var response = await httpClient.PostAsJsonAsync(_wordCloudApiUrl, wordCloudData);
-            response.EnsureSuccessStatusCode();
+            
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+                _logger.LogError($"QuickChart API error: {errorContent}");
+                _logger.LogError($"Request URL: {_wordCloudApiUrl}");
+                _logger.LogError($"Request data: {System.Text.Json.JsonSerializer.Serialize(wordCloudData)}");
+                throw new Exception($"QuickChart API error: {errorContent}");
+            }
 
             var imageBytes = await response.Content.ReadAsByteArrayAsync();
 
