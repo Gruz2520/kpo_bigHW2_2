@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using ApiGateway.Models;
 using System.Text.Json;
 using System.Net.Http.Json;
+using ApiGateway.Extensions;
 
 namespace ApiGateway.Controllers;
 
@@ -40,15 +41,11 @@ public class FilesController : ControllerBase
 
             _logger.LogInformation($"Attempting to upload file {file.FileName}");
             
-            using var stream = file.OpenReadStream();
-            using var memoryStream = new MemoryStream();
-            await stream.CopyToAsync(memoryStream);
-            
             var client = new FileStoring.FileStoringClient(_fileStoringChannel);
             var request = new UploadFileRequest
             {
                 FileName = file.FileName,
-                Content = Google.Protobuf.ByteString.CopyFrom(memoryStream.ToArray())
+                Content = Google.Protobuf.ByteString.CopyFrom(await file.GetBytesAsync())
             };
             
             var response = await client.UploadFileAsync(request);
