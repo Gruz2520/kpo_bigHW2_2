@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option csharp_namespace = "Shared.Protos";
+
+package fileanalysis;
+
+service FileAnalysis {
+  rpc AnalyzeFile (AnalyzeFileRequest) returns (AnalyzeFileResponse);
+  rpc GetWordCloud (GetWordCloudRequest) returns (GetWordCloudResponse);
+}
+
+message AnalyzeFileRequest {
+  string file_id = 1;
+}
+
+message SimilarFile {
+  string file_id = 1;
+  double similarity_percentage = 2;
+  string file_name = 3;
+}
+
+message WordFrequency {
+  string word = 1;
+  int32 count = 2;
+}
+
+message AnalyzeFileResponse {
+  string file_id = 1;
+  string file_name = 2;
+  string file_hash = 3;
+  int32 word_count = 4;
+  int32 character_count = 5;
+  repeated WordFrequency frequent_words = 6;
+  repeated SimilarFile similar_files = 7;
+}
+
+message GetWordCloudRequest {
+  string file_id = 1;
+}
+
+message GetWordCloudResponse {
+  string file_id = 1;
+  bytes word_cloud_image = 2;
+} 

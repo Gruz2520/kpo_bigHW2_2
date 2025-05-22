@@ -1,0 +1,3 @@
+obj\Debug\net8.0\Protos/FileStoring.cs \
+obj\Debug\net8.0\Protos/FileStoringGrpc.cs: C:/Users/user/.nuget/packages/grpc.tools/2.72.0/build/native/include/google/protobuf/timestamp.proto\
+ Protos/file_storing.proto

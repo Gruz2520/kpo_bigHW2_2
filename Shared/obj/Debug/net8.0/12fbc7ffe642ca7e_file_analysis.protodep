@@ -1,0 +1,2 @@
+obj\Debug\net8.0\Protos/FileAnalysis.cs \
+obj\Debug\net8.0\Protos/FileAnalysisGrpc.cs: Protos/file_analysis.proto

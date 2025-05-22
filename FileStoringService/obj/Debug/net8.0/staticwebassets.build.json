@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "p+2PLiRubM6XtNeMmY6ThSZi+lNRadthzqpUKvXTpzg=",
+  "Source": "FileStoringService",
+  "BasePath": "_content/FileStoringService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
